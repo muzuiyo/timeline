@@ -288,6 +288,8 @@ export async function downloadPdfFile(data, filename) {
     new Blob([htmlContent], { type: "text/html" }),
   );
   link.download = filename.replace("pdf", "html");
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(htmlContent);
   try {
     // 于是我放弃了PDF:D
     // generatePdf(htmlContent);
@@ -295,9 +297,9 @@ export async function downloadPdfFile(data, filename) {
     setTimeout(() => {
       URL.revokeObjectURL(link.href);
     }, 1000);
-  } catch (error) {
-    const c = document.getElementById("export-timeline-pdf-container");
-    document.body.removeChild(c);
+    printWindow.alert("HTML 文件已下载");
+  } 
+  catch (error) {
     console.error("下载文件失败:", error);
     return false;
   }
