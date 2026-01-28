@@ -287,17 +287,22 @@ export async function downloadPdfFile(data, filename) {
   link.href = URL.createObjectURL(
     new Blob([htmlContent], { type: "text/html" }),
   );
-  link.download = filename.replace("pdf", "html");
-  const printWindow = window.open('', '_blank');
-  printWindow.document.write(htmlContent);
+  try {
+    link.download = filename.replace("pdf", "html");
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(htmlContent);
+  }
+  catch (error) {
+    console.error("无法打开新窗口:", error);
+  }
   try {
     // 于是我放弃了PDF:D
     // generatePdf(htmlContent);
     link.click();
     setTimeout(() => {
       URL.revokeObjectURL(link.href);
+      printWindow.alert("HTML 文件已下载");
     }, 1000);
-    printWindow.alert("HTML 文件已下载");
   } 
   catch (error) {
     console.error("下载文件失败:", error);
