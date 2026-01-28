@@ -20,7 +20,7 @@ pnpm run build
 
 在用户时间胶囊界面添加了一个按钮用于导出个人数据。
 
-![截图](https://github.com/user-attachments/assets/26ad2917-f765-4109-86ea-07efbbf74ef2)
+![截图](https://github.com/user-attachments/assets/663dbcaa-4db9-4d1d-8d41-ee4dd418a734)
 
 # 代办项
 
