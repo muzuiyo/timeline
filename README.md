@@ -16,6 +16,12 @@ pnpm run dev
 pnpm run build
 ```
 
+# 使用
+
+在用户时间胶囊界面添加了一个按钮用于导出个人数据。
+
+![截图](https://github.com/user-attachments/assets/26ad2917-f765-4109-86ea-07efbbf74ef2)
+
 # 代办项
 
 - [ ] 规避特殊请求500错误码问题，详见 [issue](https://github.com/bangumi/server-private/issues/1467)。
